@@ -66,4 +66,11 @@ public class PlayerConroller : MonoBehaviour
         velocity.y += -9.81f * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
     }
+	
+	private void OnControllerColliderHit(ControllerColliderHit hit) {
+		if (hit.gameObject.tag == "PickUp") {
+			hit.gameObject.GetComponent<PickUp>().Picked();
+		}
+	}
+	
 }
